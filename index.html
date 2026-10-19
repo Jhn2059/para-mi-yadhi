@@ -1,0 +1,168 @@
+﻿<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#090d1b">
+  <title>Un universo para Yadhira ♥</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600;700&family=DM+Sans:wght@400;500;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+  <script type="importmap">
+    {
+      "imports": {
+        "three": "https://cdn.jsdelivr.net/npm/three@0.164.1/build/three.module.js",
+        "three/addons/": "https://cdn.jsdelivr.net/npm/three@0.164.1/examples/jsm/"
+      }
+    }
+  </script>
+</head>
+<body class="welcoming">
+  <div class="ambient ambient-one"></div><div class="ambient ambient-two"></div>
+  <div id="stars" aria-hidden="true"></div>
+  <div id="petals" aria-hidden="true"></div>
+  <div id="welcome" class="welcome" role="dialog" aria-label="Bienvenida">
+    <div class="welcome-orbit" aria-hidden="true"><span>♥</span><span>♥</span><span>♡</span><span>♡</span><span>♥</span><span>♥</span></div>
+    <div class="welcome-card">
+      <p class="welcome-eyebrow">UN PEQUEÑO DETALLE PARA TI</p>
+      <h1><em>Mi niña de ojitos bonitos ❤️</em></h1>
+      <p class="welcome-copy">Yadhi, preparé este pequeño detalle pensando en ti, en tu sonrisa y en lo bonito que es tenerte en mi vida.<br>Cada sección guarda un poquito de todo lo que siento por ti.</p>
+      <button id="welcome-enter" class="primary-button">Entrar ♥</button>
+      <p class="welcome-hint">con amor para el amor de mi vida</p>
+    </div>
+  </div>
+  <div id="toast" class="toast" role="status" aria-live="polite"></div>
+  <audio id="bg-music" src="assets/musica.mp3" loop preload="none"></audio>
+  <button id="music-toggle" aria-label="Activar o pausar la música" title="Música">♪</button>
+  <header class="topbar">
+    <a class="brand" href="#" aria-label="Inicio"><span class="brand-mark">♥</span> PARA MI YADHI</a>
+    <span class="top-note">un detallito más hecho con amor para ti</span>
+  </header>
+
+  <main>
+    <section id="intro" class="screen intro-screen">
+      <p class="eyebrow">UNA HISTORIA, MUCHOS RECUERDOS</p>
+      <h1>Qué bonito fue<br><em>coincidir contigo ❤️</em>.</h1>
+      <p class="intro-copy">Si pudiera guardar en un lugar todos los sentimientos bonitos que me haces sentir, creo que terminaría creando un universo entero solo para ti.</p>
+      <div class="book-stage">
+        <div class="book-halo"></div>
+        <div id="book-canvas" aria-label="Libro tridimensional interactivo"></div>
+        <div class="book-hint"><span class="pulse-dot"></span> Arrastra para girar · Pulsa el libro para abrirlo</div>
+      </div>
+      <button id="open-book" class="primary-button">Abrir libro <span>↗</span></button>
+      <p class="microcopy">UN PEDACITO DE MI CORAZÓN PARA TI</p>
+    </section>
+
+    <section id="letter" class="screen letter-screen hidden">
+      <button class="back-button" data-back="intro">← Volver al libro</button>
+      <p class="eyebrow">CAPÍTULO I · UNA CARTA PARA TI</p>
+      <div class="letter-card">
+        <div class="letter-top">♥ &nbsp; PARA EL AMOR DE MI VIDA &nbsp; ♥</div>
+        <div class="letter-rule"></div>
+        <h2>Feliz cumpleaños,<br><em>mi amor.</em></h2>
+        <p class="letter-body">Mi niña hermosa, hoy es tu día y no sabes cuánto me alegra poder celebrar tu vida. A veces pienso en lo curioso que es todo, porque entre tantas personas y tantos caminos posibles, la vida hizo que coincidiéramos tú y yo.</p>
+        <p class="letter-body">Quiero que este nuevo añito de tu vida esté lleno de momentos que te hagan feliz, sueños que poco a poco se conviertan en realidad y muchísimas razones para sonreír. Deseo que nunca olvides lo maravillosa que eres, todo lo que vales y lo mucho que mereces recibir cosas bonitas. Y cuando tengas días difíciles, espero que puedas recordar que no tienes que poder con todo tú solita mi amor y recuerda que siempre estaré ahí para ti.</p>
+        <p class="letter-signature">Qué bonito que hayas nacido, qué bonito haberte encontrado y qué bonito poder compartir contigo un pedacito de esta vida. Ojalá me queden muchísimos cumpleaños más para abrazarte, engreírte, verte sonreír y seguir creando recuerdos contigo. Te amo muchísimo mi niña. Feliz cumpleaños. <span>♥</span></p>
+        <div class="letter-footer">CON TODO MI AMOR, PARA TI</div>
+      </div>
+      <button id="continue-to-world" class="primary-button">Descubrir el regalo <span>♥</span></button>
+    </section>
+
+    <section id="world" class="screen world-screen hidden">
+      <button class="back-button" data-back="intro">← Volver al libro</button>
+      <div class="world-heading">
+        <p class="eyebrow">TU PEQUEÑO UNIVERSO</p>
+        <h2>Elige dónde <em>explorar</em>.</h2>
+        <p>Preparé algunas cositas para ti mi vida. Puedes ir descubriéndolas a tu ritmo, cada rinconcito tiene algo bonito que quiero compartir contigo</p>
+      </div>
+      <div class="feature-grid">
+        <button class="feature-card scrapbook-card" data-panel="album">
+          <span class="feature-icon">♡</span><span class="feature-number">01 / RECUERDOS</span>
+          <span class="feature-title">Álbum</span><span class="feature-desc">Fotos, notas y pequeños tesoros.</span><span class="feature-arrow">↗</span>
+        </button>
+        <button class="feature-card cake-card" data-panel="cake">
+          <span class="feature-icon">✧</span><span class="feature-number">02 / UNA SORPRESA</span>
+          <span class="feature-title">Pide un deseo</span><span class="feature-desc">Porque hoy celebramos a una de mis personitas favoritas en todo el mundo.</span><span class="feature-arrow">↗</span>
+        </button>
+        <button class="feature-card message-card" data-panel="message">
+          <span class="feature-icon">✉</span><span class="feature-number">03 / MENSAJE SECRETO</span>
+          <span class="feature-title">Unas palabritras para ti</span><span class="feature-desc">Algo que mi corazón siempre quiere recordarte, incluso cuando no sé cómo decírtelo.</span><span class="feature-arrow">↗</span>
+        </button>
+      </div>
+      <p class="world-footnote">CADA DETALLE LLEVA UN POQUITO DE MI CORAZÓN<span>♥</span></p>
+    </section>
+
+    <section id="album" class="screen sub-screen hidden">
+      <button class="back-button" data-back="world">← Volver al universo</button>
+      <p class="eyebrow">CAPÍTULO II · NUESTRA HISTORIA</p>
+      <h2 class="section-title">Un álbum de <em>pequeños recuerdos infinitos.</em></h2>
+      <p class="section-intro">Este álbum también es todo tuyo, sube una foto desde cualquier dispositivo y escríbele una nota.
+        <br>
+        <br>
+        Amor, como no tengo ninguna foto tuya, mejor súbelas tú misma 🤭, escribe una nota junto a cada foto y deja que se guarden para siempre.
+      </p>
+      <div class="album-actions">
+        <button id="add-memory" class="primary-button">Agregar un recuerdo ♥</button>
+        <input type="file" id="memory-input" accept="image/*" multiple hidden>
+      </div>
+      <div class="scrapbook" id="scrapbook"></div>
+      <p class="hint-line">Las fotos se guardan solo en este dispositivo y nunca salen de ahí (implementaré mejoras para que ambos podamos verlas a la vez).</p>
+    </section>
+
+    <section id="cake" class="screen sub-screen hidden">
+      <button class="back-button" data-back="world">← Volver al universo</button>
+      <p class="eyebrow">CAPÍTULO III · PIDE UN DESEO</p>
+      <h2 class="section-title">Cierra tus ojitos <em>y pide un deseo.</em></h2>
+      <p class="section-intro">No olvides apagar las velitas después de pedir tu deseo mi amor.</p>
+      <div id="cake-canvas" class="cake-stage" aria-label="Torta de cumpleaños tridimensional"></div>
+      <button id="blow-candles" class="primary-button">Apagar las velitas ♥</button>
+      <p id="wish-message" class="wish-message" aria-live="polite"></p>
+    </section>
+
+    <section id="message" class="screen sub-screen hidden">
+      <button class="back-button" data-back="world">← Volver al universo</button>
+      <p class="eyebrow">CAPÍTULO IV · ABRE CUANDO QUIERAS</p>
+      <div class="envelope-stage" id="envelope-stage">
+        <div class="envelope" id="envelope">
+          <div class="env-back"></div>
+          <div class="env-letter"><span>Para mis ojitos bonitos ♥</span></div>
+          <div class="env-front"></div>
+          <div class="env-flap"></div>
+          <div class="env-seal">♥</div>
+        </div>
+      </div>
+      <div class="message-reveal" id="message-reveal">
+        <h2 class="section-title">Algo que mi corazón <em>quiere decirte.</em></h2>
+        <div class="secret-note">
+        <p>Mi Yadhi, mi niña hermosa, si llegaste hasta aquí, quiero que te quedes un ratito con estas palabritas. ❤️
+          A veces me pregunto cómo es posible que una persona llegue a tu vida y, sin darse cuenta, termine convirtiéndose en
+          alguien tan importante para ti. Alguien que te hace ilusión ver, a quien quieres contarle hasta las cosas más pequeñas
+          de tu día y con quien empiezas a imaginar muchísimos momentos que todavía te gustaría vivir y entonces, pienso en ti 
+          ojitos bonitos, y entiendo que hay sentimientos que simplemente se sienten tan bonitos que cuesta encontrar palabras
+          suficientes para explicarlos.
+        
+          No sé qué nos tenga preparado la vida ni cómo serán todos los días que todavía nos faltan vivir, pero sí sé que me
+          hace feliz compartir este presente contigo. Quiero seguir conociéndote, aprender de ti, cuidarte, hacerte reír con mis
+          tonterías y recordarte lo maravillosa que eres.
+        
+          Gracias por existir cariño. Gracias por ser tú y por dejarme conocerte de esa manera tan especial. Ojalá nunca
+          olvides que tu vida es valiosa, que tus sueños importan y que mereces muchísimas cosas bonitas. Y ojalá, cuando tengas
+          un día en el que te cueste ver todo lo bonito que hay en ti, puedas recordar que hay alguien que te mira con muchísimo
+          amor y que se siente muy feliz de haberte encontrado.
+        
+          Feliz cumpleaños, mis ojitos bonitos. Espero que este pequeño universo te recuerde cuánto te amo y lo feliz que
+          me hace coincidir contigo. Si pudiera volver a aquel momento en el que nuestros caminos se cruzaron, sabiendo todo lo
+          que llegarías a significar para mí, volvería a elegir conocerte sin pensarlo.
+        </p>
+        <p>Feliz cumpleaños. Te amo mucho mucho mucho mi amor.</p>
+        <span>Siempre tuyo, con todo mi cariño ♥</span>
+        </div>
+        <button id="reopen-letter" class="primary-button">Reabrir la carta ♥</button>
+      </div>
+    </section>
+  </main>
+  <footer><span>♥</span> J & Y <span>♥</span></footer>
+
+  <script type="module" src="js/main.js"></script>
+</body>
+</html>
